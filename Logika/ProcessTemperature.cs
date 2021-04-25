@@ -53,27 +53,5 @@ namespace Logika
             
         }
 
-
-        /*Room room;
-
-        public ProcessTemperature(string roomName, double actualTemperature, double goalTemperature)
-        {
-            room = new Room(roomName, actualTemperature, goalTemperature);
-        }
-
-        public double getActualTemperature()
-        {
-            return room.getActualTemperature();
-        }
-
-        public string getRoomName()
-        {
-            return room.getRoomName();
-        }
-
-        public void setGoalTemperature(double temperature)
-        {
-            room.setGoalTemperature(temperature);
-        }*/
     }
 }
