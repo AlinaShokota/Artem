@@ -34,6 +34,7 @@ namespace Data
         public void setGoalTemperature(double temperature)
         {
             goalTemperature = temperature;
+            Console.WriteLine("GOAL TEMPERATURE**********"+ goalTemperature);
         }
 
         public void setRoomName(string name)
@@ -47,24 +48,44 @@ namespace Data
             return rnd.Next(18, 30);
         }
 
-       
+        private Random rnd2 = new Random();
         private void simulateUpdateTemp()
         {
-            //Console.WriteLine("actual " + actualTemperature);
-            //Console.WriteLine("updating " + roomName + " temperature ...");
-            if (actualTemperature < 16 || actualTemperature > 30)
+            
+            if (goalTemperature == 0 || Math.Round(goalTemperature, 1) == Math.Round(actualTemperature, 1))
             {
-                simulateUpdateTemp();
-            }
-            int a = rnd.Next(0, 100);
-            if (a > 50)
-            {
-                actualTemperature += 0.1;
+                Console.WriteLine("random " + Math.Round(goalTemperature, 1) + " "+ Math.Round(actualTemperature, 1));
+                if (actualTemperature < 16 || actualTemperature > 30)
+                {
+                    simulateUpdateTemp();
+                }
+                int a = rnd2.Next(0, 100);
+                if (a > 50)
+                {
+                    actualTemperature += 0.1;
+                }
+                else
+                {
+                    actualTemperature -= 0.1;
+                }
             }
             else
             {
-                actualTemperature -= 0.1;
+                Console.WriteLine("increase decease " + goalTemperature + " " + actualTemperature);
+                if (actualTemperature < goalTemperature)
+                {
+                    actualTemperature += 0.1;
+                }
+                else if (actualTemperature > goalTemperature)
+                {
+                    actualTemperature -= 0.1;
+                }
+                else
+                {
+
+                }
             }
+            
 
         }
 

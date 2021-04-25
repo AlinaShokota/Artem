@@ -8,11 +8,11 @@ namespace Logika
     public class ProcessTemperature : IProcessTemperature
     {
 
-        List<Room> rooms;
+        List<IRoom> rooms;
 
         public ProcessTemperature()
         {
-            rooms = new List<Room>();
+            rooms = new List<IRoom>();
         }
 
         public void addRoom(string roomName)
@@ -22,19 +22,35 @@ namespace Logika
 
         public double getRoomTemperature(string name)
         {
-            //Console.WriteLine("NAME " + name);
             foreach (Room r in rooms)
             {
                 
                 if (r.getRoomName().Equals(name))
                 {
-                    //Console.WriteLine("W IF" + r.getRoomName().Equals(name));
                     return r.getActualTemperature();
                 }
                     
             }
             Console.WriteLine("No room with this name exist");
             return 0;
+        }
+
+        public void setGoalTemp(string roomName, double goalTemp)
+        {
+            foreach (Room r in rooms)
+            {
+
+                if (r.getRoomName().Equals(roomName))
+                {
+                    r.setGoalTemperature(goalTemp);
+                }
+                else
+                {
+                    Console.WriteLine("No room with this name exist");
+                }
+
+            }
+            
         }
 
 

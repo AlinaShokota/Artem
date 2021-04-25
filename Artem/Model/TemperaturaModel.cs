@@ -9,7 +9,7 @@ namespace Artem.Model
 {
     class TemperaturaModel
     {
-        ProcessTemperature processTemperature;
+        IProcessTemperature processTemperature;
 
         public TemperaturaModel()
         {
@@ -26,8 +26,12 @@ namespace Artem.Model
         public double getRoomTemperature(string roomName)
         {
             double actual = processTemperature.getRoomTemperature(roomName);
-            Console.WriteLine("GET ROOM "+ roomName+ " TEMP: "+actual);
             return actual;
+        }
+
+        public void setGoalTemperature(string roomName, double goalTemperature)
+        {
+            processTemperature.setGoalTemp(roomName, goalTemperature);
         }
     }
 }

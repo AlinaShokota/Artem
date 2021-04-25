@@ -25,10 +25,10 @@
         </ComboBox>
 
 
-        <!--<Label Name="lblTimer" Grid.Row="1" Grid.Column="1" Content="{Binding Path=CurrentTemp}" ></Label>-->
         <StackPanel Grid.Row="0" Grid.Column="1">
             <TextBlock Text="{Binding CurrentTemp}" Margin="146,0,220,0"/>
-            
+            <TextBox Width="300" Text="{Binding GoalTemp}" Margin="96,0"/>
+            <Button Width="200" Command="{Binding SubmitButtonCommand}" Content="Submit" Margin="146,0"/>
         </StackPanel>
     </Grid>
 </Window>
